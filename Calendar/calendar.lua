@@ -4,7 +4,7 @@
 -- Corona SDK Calendar Sample Code
 -- ====================================================================
 --
--- File: main.lua
+-- File: calendar.lua
 --
 -- Version 1.0
 --
