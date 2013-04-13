@@ -179,9 +179,9 @@ function scene:createScene( event )
                 
                 --Change height depending on amount of rows.
                 if calRows == 5 then
-                    dayBox = display.newRect( x, y, display.contentWidth/7, 66 )
+                    dayBox = display.newRect( x, y, display.contentWidth/7, 60 )
                 else
-                    dayBox = display.newRect( x, y, display.contentWidth/7, 55 )
+                    dayBox = display.newRect( x, y, display.contentWidth/7, 50 )
                 end
                 
                 if calWhatMonth ~= 2 then --Fills the days which aren't the selected month with a different color 
@@ -270,9 +270,9 @@ function scene:createScene( event )
             end
             
             if calRows == 5 then
-                y = y + 66
+                y = y + 60
             else
-                y = y + 55
+                y = y + 50
             end
             x = 0
         end
