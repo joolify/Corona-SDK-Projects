@@ -294,7 +294,7 @@ function scene:createScene( event )
         local prevButton = widget.newButton
         {
             left = 15,
-            top = display.contentHeight - 70,
+            top = display.contentHeight - 95,
             width = 80,
             height = 40,
             label = "<<",
@@ -308,7 +308,7 @@ function scene:createScene( event )
         local nextButton = widget.newButton
         {
             left = display.contentWidth - 100,
-            top = display.contentHeight - 70,
+            top = display.contentHeight - 95,
             width = 80,
             height = 40,
             label = ">>",
