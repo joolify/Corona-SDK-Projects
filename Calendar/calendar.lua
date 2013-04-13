@@ -204,43 +204,17 @@ function scene:createScene( event )
                     calDayText = calDay
                 end
                 
+                
                 --A text representing each day nr. 
                 local dayText
-                
-                if calDay == date.day and calMonth == date.month and calYear == date.year then --Bolds the day nr if it's today.
-                    dayText = display.newText( calDayText, 0, 0, 0, 0, native.systemFontBold, 10 )
-                    dayText:setTextColor( 255, 51, 51, 255 )
-                else
-                    dayText = display.newText( calDayText, 0, 0, 0, 0, native.systemFont, 10 )
-                    dayText:setTextColor( 0, 0, 0 )
-                end
-                
+                dayText = display.newText( calDayText, 0, 0, 0, 0, native.systemFont, 10 )
+                dayText:setTextColor( 0, 0, 0 )
                 dayText:setReferencePoint(display.CenterLeftReferencePoint)
                 dayText.x = x + 3
                 dayText.y = y + 7
                 group:insert( dayText )
                 
-                --If it's the end of the month, stop showing day numbers. 
-                if calDay == calEnd then
-                    if calWhatMonth == 1 then
-                        calDay = 1
-                        calMonth = selMonth
-                        calYear = selYear
-                        calEnd = selEndDay
-                        calFirst = true
-                        calWhatMonth = 2 
-                    elseif calWhatMonth == 2 then
-                        calDay = 1
-                        calMonth = nextMonth
-                        calYear = nextYear
-                        calEnd = nextEndDay
-                        calFirst = true
-                        calWhatMonth = 3
-                    end
-                else
-                    calDay = calDay + 1
-                end
-                
+                 
                 --Print out the day names on the calBox. 
                 if j == 1 then
                     local dayText = display.newText( get_day_of_week[i], 0, 0, 44, 0, native.systemFont, 14 )
@@ -264,6 +238,39 @@ function scene:createScene( event )
                     frameRight.alpha = 1
                     group:insert( frameRight )
                 end
+                
+                
+                --Puts a circle around the day if it's today.
+                if calDay == date.day and calMonth == date.month and calYear == date.year then 
+                    local calDayCircle = display.newImage("assets/circle.png", true)
+                    calDayCircle.xScale = 0.50
+                    calDayCircle.yScale = 0.50
+                    calDayCircle.x = x + 10
+                    calDayCircle.y = y + 6
+                    group:insert( calDayCircle )
+                end
+                
+                --If it's the end of the month, stop showing day numbers. 
+                if calDay == calEnd then
+                    if calWhatMonth == 1 then
+                        calDay = 1
+                        calMonth = selMonth
+                        calYear = selYear
+                        calEnd = selEndDay
+                        calFirst = true
+                        calWhatMonth = 2 
+                    elseif calWhatMonth == 2 then
+                        calDay = 1
+                        calMonth = nextMonth
+                        calYear = nextYear
+                        calEnd = nextEndDay
+                        calFirst = true
+                        calWhatMonth = 3
+                    end
+                else
+                    calDay = calDay + 1
+                end
+               
                 
                 x = x + display.contentWidth/7
                 
